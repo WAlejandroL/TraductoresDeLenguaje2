@@ -1,15 +1,6 @@
 entrada = input("Entrada: ")
 i = 0
 
-def comparar (comparar):
-    caracteres = ["+", "-", "*","/","<", ">", "=", "|", "&", "!", ";", ",", "(", ")", "{", "}", "$"]
-    x = 0
-    while x < len(caracteres):
-        if comparar == caracteres[x]:
-            return caracteres[x]
-        else:
-            x +=1
-
 while i < len(entrada):
 
     #Identificador de espacios
@@ -45,21 +36,78 @@ while i < len(entrada):
 
         else:
             print(token, "-> ENTERO")
+
     #Identificador de caracteres especiales 
     else:
-        token = comparar(entrada[i])
-        i +=1 
-        contador = 0
-        while contador < 2:
-            if token == comparar(entrada[i]):
-                token += entrada[i]
+        while i < len(entrada):
+            if entrada[i] == '=':
+                token = entrada[i]
                 i += 1
-                contador += 1
-            else:
-                token += comparar(entrada[i])
-                i += 1
-                contador += 1
-                break
-        print(token, " -> Caracter especial")
+                while i < len(entrada):
+                    if entrada[i] == '=':
+                        token += entrada[i]
+                        i += 1
+                            
+                print(token, " -> Caracter especial")
+                        
 
-    
+            elif entrada[i] == '<':
+                token = entrada[i]
+                i += 1
+                while i < len(entrada):
+                    if entrada[i] == '=':
+                        token += entrada[i]
+                        i += 1
+
+                print(token, " -> Caracter especial")
+                        
+
+            elif entrada[i] == '>':
+                token = entrada[i]
+                i += 1
+                while i < len(entrada):
+                    if entrada[i] == '=':
+                        token += entrada[i]
+                        i += 1
+
+                print(token, " -> Caracter especial")
+                        
+
+            elif entrada[i] == '!':
+                token = entrada[i]
+                i += 1
+                while i < len(entrada):
+                    if entrada[i] == '=':
+                        token += entrada[i]
+                        i += 1
+
+                print(token, " -> Caracter especial")
+                        
+
+            elif entrada[i] == '&':
+                token = entrada[i]
+                i += 1
+                while i < len(entrada):
+                    if entrada[i] == '&':
+                        token += entrada[i]
+                        i += 1
+
+                print(token, " -> Caracter especial")
+                        
+
+            elif entrada[i] == '|':
+                token = entrada[i]
+                i += 1
+                while i < len(entrada):
+                    if entrada[i] == '|':
+                        token += entrada[i]
+                        i += 1
+
+                print(token, " -> Caracter especial")
+                        
+                    
+
+            else:
+                token = entrada[i]
+                print(token, " -> Caracter especial")
+                i += 1
