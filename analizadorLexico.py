@@ -60,6 +60,7 @@ while i < len(entrada):
     if entrada[i] == ' ':
         i += 1
         continue
+    
     #Identificador de palabras reservadas e identificadores
     if entrada[i].isalpha():
         token = ""
@@ -69,6 +70,7 @@ while i < len(entrada):
             i += 1
 
         print(token, "->", validar(token))
+
         #Identificador de enteros
     elif entrada[i].isdigit():
         token = ""
@@ -93,76 +95,68 @@ while i < len(entrada):
 
     #Identificador de caracteres especiales 
     else:
-        while i < len(entrada):
-            if entrada[i] == '=':
-                token = entrada[i]
+        if entrada[i] == '=':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '=':
+                token += entrada[i]
                 i += 1
-                while i < len(entrada):
-                    if entrada[i] == '=':
-                        token += entrada[i]
-                        i += 1
-                            
-                print(token, " ->", validar(token))
                         
+            print(token, " ->", validar(token))                  
 
-            elif entrada[i] == '<':
-                token = entrada[i]
+        elif entrada[i] == '<':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '=':
+                token += entrada[i]
                 i += 1
-                while i < len(entrada):
-                    if entrada[i] == '=':
-                        token += entrada[i]
-                        i += 1
 
-                print(token, " ->", validar(token))
-                        
+            print(token, " ->", validar(token))                   
 
-            elif entrada[i] == '>':
-                token = entrada[i]
+        elif entrada[i] == '>':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '=':
+                token += entrada[i]
                 i += 1
-                while i < len(entrada):
-                    if entrada[i] == '=':
-                        token += entrada[i]
-                        i += 1
 
-                print(token, " ->", validar(token))
-                        
+            print(token, " ->", validar(token))           
 
-            elif entrada[i] == '!':
-                token = entrada[i]
+        elif entrada[i] == '!':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '=':
+                token += entrada[i]
                 i += 1
-                while i < len(entrada):
-                    if entrada[i] == '=':
-                        token += entrada[i]
-                        i += 1
 
-                print(token, " ->", validar(token))
-                        
+            print(token, " ->", validar(token))      
 
-            elif entrada[i] == '&':
-                token = entrada[i]
+        elif entrada[i] == '&':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '&':
+                token += entrada[i]
                 i += 1
-                while i < len(entrada):
-                    if entrada[i] == '&':
-                        token += entrada[i]
-                        i += 1
 
-                print(token, " ->", validar(token))
-                        
-
-            elif entrada[i] == '|':
-                token = entrada[i]
-                i += 1
-                while i < len(entrada):
-                    if entrada[i] == '|':
-                        token += entrada[i]
-                        i += 1
-
-                print(token, " ->", validar(token))
-                        
+            print(token, " ->", validar(token))
                     
 
-            else:
-                token = entrada[i]
-                print(token, " ->", validar(token))
+        elif entrada[i] == '|':
+            token = entrada[i]
+            i += 1
+
+            if i < len(entrada) and entrada[i] == '|':
+                token += entrada[i]
                 i += 1
 
+            print(token, " ->", validar(token))
+                    
+        else:
+            token = entrada[i]
+            print(token, " ->", validar(token))
+            i += 1
