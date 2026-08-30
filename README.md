@@ -1,16 +1,24 @@
-## CARPETA TRADUDUCTORES DE LENGUAJE 2
+# CARPETA TRADUDUCTORES DE LENGUAJE 2
 
 Este repositorio funciona como carpeta de evidencias sobre actividades y proyectos de la materia *Traductores de lenguaje 2*.
 
-# analizadorLexico.py
-Este es un pequeño analizador donde solo reconoce cadenas, numeros reales y numeros enteros separados por espacios.
-# Entrada
-```bash
-Entrada: 123 hola 23.2
+## analizadorLexico.py
+Es un pequeño analizador lexico de entradas, este regresa el codigo correspondiente al token analizado.
+
+### Tabla de Tipos
+
+![tabla](imagenes/tablaValores.png)
+
+### Ejemplo
+**Entrada**
 ```
-# Salida
-```bash
-123 -> ENTERO
-hola -> IDENTIFICADOR
-23.2 -> REAL
+if x == 10;
+```
+**Salida Esperada**
+```
+if -> 19
+x -> 0
+== -> 11
+10 -> 2
+; -> 12
 ```
